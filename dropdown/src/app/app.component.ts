@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { NgForm }   from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { NgForm, FormBuilder, FormArray, FormGroup, Validators }   from '@angular/forms';
 import { FormsModule } from '@angular/forms';
- 
+//  import { forbiddenNameValidator } from './shared/user-name.validator';
+ import { RegistrationService } from './registration.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,22 +11,13 @@ import { FormsModule } from '@angular/forms';
 export class AppComponent {
   items:any[]=[];
      // define the JSON of data
-     public countries: { [key: string]: Object; }[] = [
-        { Name: 'Paracitamol' },
-            { Name: 'Arnica'},
-            { Name: 'khukinal' },
-            { Name: 'Cameroon' },
-            { Name: 'Semoon' },
-            { Name: 'Volini' },
-            { Name: 'Vick'},
-            { Name: 'Dolo 650' },          
-        ];
         constructor() { }
         ngOnInit() {
         }
-        onSubmit(form: NgForm): void {
+        onSubmit(form: NgForm,medicine,quantity): void {
           this.items=form.value.name;
-          console.log(form.value.name);
+          console.log(medicine.value);
+          console.log(quantity.value);
         }
       
   

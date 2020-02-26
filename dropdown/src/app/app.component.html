@@ -1,45 +1,43 @@
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
              <html>
              <head>
-             
+             <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+             <style>
+             body{
+               background-color:yellow;
+             }
+             </style>
              </head>
-             <body> 
+             <body ng-app=""> 
               <select class="chosen">
-                 <option value="ls">Select your disease:</option>
-                 <option>Cold</option>
-                 <option>Fever</option>
-                 <option>Pain</option>
-                 <option>Malaria</option>
-                 <option>headache</option>
+                 <option value="ls">Select the Medicine:</option>
+                 <option>paracitamol</option>
+                 <option>Arnica</option>
+                 <option>Volini</option>
+                 <option>Dolo 650</option>
+                 <option>Nostalio 70</option>
                  </select>
-                 <h1>HELLO</h1>
-                 <h2>Choose Medicines here--></h2>       
-<form #form='ngForm' (ngSubmit)="onSubmit(form)">
-    <div class="form-group"> 
-        <ejs-multiselect id='localData' name='name'  #local='ngModel' [(value)]='value'[(ngModel)]='value' [dataSource]='countries' [fields]='localFields' [placeholder]='localWaterMark'></ejs-multiselect>
-        <button type="submit" ejs-button>+</button>
-    </div>
-  </form>
-                 
-                 <script type="text/javascript">
-                  $(".chosen").chosen();
-                 </script>
+                 <div>
+                  <h1>HELLO</h1>
+                 </div>
+                 <div ng-init="myVar = 'app.jk.html'">
+                 <h2>Add New Medicine here --></h2> 
+                  </div>
+
+                      
+<form #form='ngForm' (ngSubmit)="onSubmit(form,medicine,quantity)" method="post" action="jk.html">
  <ul>
-<li *ngFor="let item of items">
- <div id = "check_medi" style="display:inline-block">   
-    <p> {{item}} </p>
-    <label for = "quantity">quantity</label>
-    <input type = "text" id = "quantity">
-    <label for = "morning">M</label>
-    <input type="checkbox"id = "morning">
-    <label for = "noon">N</label>
-    <input type="checkbox"id = "noon">
-    <label for = "evening">E</label>
-    <input type="checkbox"id = "evening">
+ <li>
+  <div id = "check_medi" style="display:inline-block"> 
+    <label for = "name">Name of Medicine</label>
+    <input type = "text" name = "medicine_name" #medicine id="name">
+    <label for = "qty">Quantity</label>
+    <input type = "text" name = "quantity" #quantity id="qty" >
+        <button type="submit">+</button>
     </div>
 </li>
 </ul>
-</head>
-</html>
+</form>
 
+</body>
+</html>
